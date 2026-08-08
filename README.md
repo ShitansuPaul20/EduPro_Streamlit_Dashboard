@@ -12,45 +12,51 @@ dashboard/
 └── README.md
 ```
 
-## Kaise chalayein (Local computer pe)
+## How to Run (on your local computer)
 
-1. Is poori `dashboard` folder ko apne computer pe rakho (structure mat badlo — `data/` folder andar hi hona chahiye).
+1. Keep the entire `dashboard` folder on your computer as-is (don't change the structure — the `data/` folder must stay inside it).
 
-2. Terminal/Command Prompt kholo, folder mein jao:
+2. Open Terminal/Command Prompt and navigate to the folder:
    ```
    cd path/to/dashboard
    ```
 
-3. Requirements install karo:
+3. Install the requirements:
    ```
    pip install -r requirements.txt
    ```
 
-4. Dashboard run karo:
+4. Run the dashboard:
    ```
    streamlit run app.py
    ```
 
-5. Browser mein automatically khul jayega (agar nahi khule, toh terminal mein diya gaya `http://localhost:8501` link kholo).
+5. It will open automatically in your browser (if not, open the `http://localhost:8501` link shown in the terminal).
 
-## Google Colab mein chalana ho toh (optional)
+   > **Windows tip:** If you get `'streamlit' is not recognized`, use this instead:
+   > ```
+   > python -m pip install -r requirements.txt
+   > python -m streamlit run app.py
+   > ```
 
-Colab mein Streamlit directly nahi chalta. Agar zaroorat pade toh:
+## Running in Google Colab (optional)
+
+Streamlit doesn't run directly inside Colab notebook cells. If you need to, you can use:
 ```python
 !pip install streamlit -q
-!wget -q -O - ipv4.icanhazip.com   # apna IP note karo
+!wget -q -O - ipv4.icanhazip.com   # note your IP
 !streamlit run app.py & npx localtunnel --port 8501
 ```
-Lekin sabse aasan tarika hai apne laptop/PC pe local run karna.
+But the easiest and most reliable way is to run it locally on your laptop/PC.
 
-## Deploy karna ho (free, sabko link se dikhana ho)
+## Deploying (free, to share a public link)
 
-[share.streamlit.io](https://share.streamlit.io) (Streamlit Community Cloud) pe:
-1. Is `dashboard` folder ko GitHub repo mein daal do (data files sahit)
-2. share.streamlit.io pe login karo (GitHub se)
-3. Repo connect karo, `app.py` select karo
-4. Deploy — free public link mil jayega
+On [share.streamlit.io](https://share.streamlit.io) (Streamlit Community Cloud):
+1. Push this `dashboard` folder to a GitHub repo (including the data files)
+2. Log in to share.streamlit.io using your GitHub account
+3. Connect the repo and select `app.py` as the main file
+4. Click Deploy — you'll get a free public link
 
-## Data Update karni ho
+## Updating the Data
 
-Agar naya data use karna hai, bas `data/` folder ki teeno CSV files replace kar do (same naam rakhna: `Teachers.csv`, `Courses.csv`, `Transactions.csv`) — ya app khulne ke baad sidebar mein "Upload my own CSV files" checkbox se directly upload kar sakte ho.
+If you want to use new data, simply replace the three CSV files inside `data/` (keep the same filenames: `Teachers.csv`, `Courses.csv`, `Transactions.csv`) — or, once the app is open, use the "Upload my own CSV files" checkbox in the sidebar to upload directly.
